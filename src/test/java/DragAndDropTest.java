@@ -25,6 +25,9 @@ public class DragAndDropTest {
         Actions actions = new Actions(WebDriverRunner.getWebDriver());
         actions.dragAndDrop(dragItem.toWebElement(), dropTarget.toWebElement()).perform();
         $("#column-a").shouldHave(text("B"));
+        $("#column-b").shouldHave(text("A"));
         $("#column-a").dragAndDropTo(element("#column-b"));
+        $("#column-a").shouldHave(text("A"));
+        $("#column-b").shouldHave(text("B"));
     }
 }
